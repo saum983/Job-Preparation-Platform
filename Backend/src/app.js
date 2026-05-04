@@ -4,12 +4,24 @@ const cors = require("cors")
 
 const app = express()
 
+app.set("trust proxy", 1)
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://job-preparation-platform.vercel.app"
+];
+
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-    origin: "http://localhost:5173",
+app.use(cors({ function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
     credentials: true
-}))
+}));
 
 /* require all the routes here */
 const authRouter = require("./routes/auth.routes")
