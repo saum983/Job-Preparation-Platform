@@ -8,7 +8,8 @@ app.set("trust proxy", 1)
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://job-preparation-platform.vercel.app"
+  "https://job-preparation-platform.vercel.app",
+  "https://job-preparation-platform-mbc4.vercel.app"
 ];
 
 app.use(express.json())
