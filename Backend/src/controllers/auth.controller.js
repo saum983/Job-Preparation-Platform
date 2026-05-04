@@ -46,7 +46,7 @@ async function registerUserController(req, res) {
         httpOnly: true,
         secure: true,
         sameSite: "None",
-        //path: "/"
+        path: "/"
 })
 
 
@@ -97,7 +97,7 @@ async function loginUserController(req, res) {
         httpOnly: true,
         secure: true,
         sameSite: "None",
-        //path: "/"
+        path: "/"
     })
     res.status(200).json({
         message: "User loggedIn successfully.",
